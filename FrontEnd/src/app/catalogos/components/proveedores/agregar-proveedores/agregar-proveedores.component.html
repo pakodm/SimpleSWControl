@@ -1,0 +1,21 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="header">
+          <mat-toolbar >
+            <mat-toolbar-row>
+              <span>Nuevo Proveedor</span>
+              <span class="toolbar-spacer"></span>
+              <mat-icon class="toolbar-icon" matTooltip="Guardar" [routerLink]="['nuevo']">save</mat-icon>
+              <mat-icon class="toolbar-icon" matTooltip="Cancelar" [routerLink]="['../']">cancel</mat-icon>
+            </mat-toolbar-row>
+          </mat-toolbar>
+        </div>
+        <div class="card">
+          <app-catalogos-form-proveedores [proveedoresForm]="proveedorForm"></app-catalogos-form-proveedores>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

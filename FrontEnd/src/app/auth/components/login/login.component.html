@@ -1,0 +1,54 @@
+<div class="container login-bg">
+    <div class="card card-container">
+        <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
+        <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+        <p id="profile-name" class="profile-name-card"></p>
+        <form class="form-signin" #form="ngForm" autocomplete="nope" (ngSubmit)="login()">
+            <span id="reauth-email" class="reauth-email"></span>
+            <div *ngIf="showMessages?.error && errors && errors.length > 0 && !submitted"
+              class="alert alert-danger" role="alert">
+              <div *ngFor="let error of errors">{{ error }}</div>
+            </div>
+
+            <div *ngIf="showMessages?.success && messages && messages.length > 0 && !submitted"
+              class="alert alert-success" role="alert">
+              <div *ngFor="let message of messages">{{ message }}</div>
+            </div>
+
+            <mat-form-field style="width: 100%">
+              <input matInput placeholder="Usuario" #username="ngModel"
+              name="username" [(ngModel)]="user.username" id="input-username" pattern=".{3,}" autofocus
+              [required]="getConfigValue('forms.validation.username.required')">
+            </mat-form-field>
+            <small *ngIf="username.invalid && username.touched && username.errors?.required" class="mat-text-warn">
+              El nombre de usuario es requerido.
+            </small>
+            <small class="mat-text-warn" *ngIf="username.invalid && username.touched && username.errors?.pattern">
+              El usuario debe contener 3 caracteres como minimo!
+            </small>
+
+            <mat-form-field style="width: 100%">
+              <input matInput type="password" placeholder="Contraseña" #password="ngModel"
+                name="password" [(ngModel)]="user.password" id="input-password"
+                [required]="getConfigValue('forms.validation.password.required')"
+                [minlength]="getConfigValue('forms.validation.password.minLength')"
+                [maxlength]="getConfigValue('forms.validation.password.maxLength')">
+            </mat-form-field>
+            <small *ngIf="password.invalid && password.touched && password.errors?.required" class="mat-text-warn">
+              La contrase&ntilde;a es requerida.
+            </small>
+            <small class="mat-text-warn"
+              *ngIf="password.invalid && password.touched && (password.errors?.minlength || password.errors?.maxlength)">
+              La contrase&ntilde;a debe contener
+              entre {{ getConfigValue('forms.validation.password.minLength') }}
+              y {{ getConfigValue('forms.validation.password.maxLength') }}
+              caracteres
+            </small>
+            
+            <button mat-raised-button color="primary" type="submit" [disabled]="submitted || !form.valid">Login</button>
+        </form><!-- /form -->
+        <a href="#" class="forgot-password">
+            ¿Olvidó su contraseña?
+        </a>
+    </div><!-- /card-container -->
+</div>

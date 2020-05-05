@@ -1,0 +1,16 @@
+<div class="content" [formGroup]="proveedoresForm">
+  <div class="row" >
+      <div class="col-md-6 input-container">
+        <mat-form-field>
+          <input matInput formControlName="descripcion" placeholder="Descripción Corta" maxlength="80" required>
+          <mat-hint align="end">{{proveedoresForm.get('descripcion').value?.length}} / 80</mat-hint>
+        </mat-form-field>
+      </div>
+      <div class="col-md-6 input-container">
+        <mat-form-field>
+          <input matInput formControlName="razon_social" placeholder="Razón Social" maxlength="170" required>
+          <mat-hint align="end">{{proveedoresForm.get('descripcion').value?.length}} / 160</mat-hint>
+        </mat-form-field>
+      </div>
+  </div>
+</div>

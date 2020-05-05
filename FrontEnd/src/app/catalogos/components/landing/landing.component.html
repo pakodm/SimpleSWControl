@@ -1,0 +1,16 @@
+<div fxLayoutWrap fxLayout="row" fxLayout.xs="column" fxLayoutGap="0px 20px" fxLayoutAlign="start stretch">
+  <div class="item-submenu-3" fxFlex="0 1 100px" fxFlex.xs="1 1 100%" *ngFor="let item of menuCatalogo"
+    [routerLink]="[item.Ruta]">
+      {{item.Nombre}}
+  </div>
+</div>
+<!--
+<div class="container-fluid">
+  <div class="row">
+  </div>
+</div>
+<p>
+  landing works!
+  you are {{myData?.name}}
+</p>
+-->

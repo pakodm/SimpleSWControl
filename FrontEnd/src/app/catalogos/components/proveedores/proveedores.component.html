@@ -1,0 +1,34 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="header">
+          <!--<h4 class="title">Proveedores</h4>-->
+          <mat-toolbar >
+            <mat-toolbar-row>
+              <span>Proveedores</span>
+              <span class="toolbar-spacer"></span>
+              <mat-icon class="toolbar-icon" [routerLink]="['nuevo']">add_box</mat-icon>
+              <mat-icon class="toolbar-icon" >edit</mat-icon>
+              <mat-icon class="toolbar-icon" (click)="deleteItem()">delete</mat-icon>
+            </mat-toolbar-row>
+          </mat-toolbar>
+        </div>
+        <div class="content table-responsive table-full-width">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th *ngFor="let cell of ListaProveedores.headerRow">{{ cell }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let row of ListaProveedores.dataRows">
+                <td *ngFor="let cell of row">{{cell}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
